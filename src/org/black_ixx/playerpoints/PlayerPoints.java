@@ -3,6 +3,7 @@ package org.black_ixx.playerpoints;
 import com.evilmidget38.UUIDFetcher;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteStreams;
+import lombok.Getter;
 import org.black_ixx.playerpoints.commands.Commander;
 import org.black_ixx.playerpoints.config.LocalizeConfig;
 import org.black_ixx.playerpoints.config.RootConfig;
@@ -33,6 +34,8 @@ public class PlayerPoints extends JavaPlugin implements PluginMessageListener {
 
     public static PlayerPoints instance;
     private static String serverName;
+    @Getter
+    private static ConsymenDataManager consuM;
     /**
      * Plugin tag.
      */
@@ -79,6 +82,7 @@ public class PlayerPoints extends JavaPlugin implements PluginMessageListener {
         // Initialize updater
         UpdateManager update = new UpdateManager(this);
         update.checkUpdate();
+        consuM = new ConsymenDataManager();
         // Register commands
         final Commander commander = new Commander(this);
         if(getDescription().getCommands().containsKey("points")) {
@@ -108,6 +112,12 @@ public class PlayerPoints extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new RestrictionListener(this), this);
         this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         this.getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
+        Bukkit.getScheduler().runTaskTimerAsynchronously(this, new Runnable() {
+            @Override
+            public void run() {
+                PlayerPoints.this.getModuleForClass(StorageHandler.class).selectConsume();
+            }
+        }, 20 , 20*60*30);
     }
 
     @Override

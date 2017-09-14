@@ -38,6 +38,10 @@ public abstract class DatabaseStorage implements IStorage {
      */
     protected String UPDATE_CONSUME = "INSERT INTO %s (playername,points,info,time,server) VALUES(?,?,?,?,?)";
     /**
+     *
+     */
+    protected String SELECT_CONSUME = "SELECT * FROM %s";
+    /**
      * Query for removing a player.
      */
     protected String REMOVE_PLAYER = "DELETE %s WHERE playername=?";
@@ -62,6 +66,7 @@ public abstract class DatabaseStorage implements IStorage {
 
     protected void SetupConsume(String consumeTableName){
         UPDATE_CONSUME = String.format(UPDATE_CONSUME , consumeTableName);
+        SELECT_CONSUME = String.format(SELECT_CONSUME , consumeTableName);
     }
 
     /**

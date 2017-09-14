@@ -1,6 +1,7 @@
 package org.black_ixx.playerpoints.storage.models;
 
 import lib.PatPeter.SQLibrary.MySQL;
+import org.black_ixx.playerpoints.ConsumeData;
 import org.black_ixx.playerpoints.PlayerPoints;
 import org.black_ixx.playerpoints.config.RootConfig;
 import org.black_ixx.playerpoints.storage.DatabaseStorage;
@@ -381,6 +382,25 @@ public class MySQLStorage extends DatabaseStorage {
                     "Could not create MySQL table.", e);
         }
         return success;
+    }
+
+    @Override
+    public void selectConsume() {
+        try {
+            ResultSet resultSet = mysql.query(SELECT_CONSUME);
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("playername");
+                int point = resultSet.getInt("points");
+                String info = resultSet.getString("info");
+                String time = resultSet.getString("time");
+                String server = resultSet.getString("server");
+                PlayerPoints.getConsuM().consumeDatas.put(id , new ConsumeData(id , name , point , info , time , server));
+            }
+        } catch(SQLException e) {
+            plugin.getLogger().log(Level.SEVERE,
+                    "Could not create MySQL table.", e);
+        }
     }
 
 }

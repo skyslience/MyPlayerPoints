@@ -50,7 +50,7 @@
         </repository>
         <repository>
             <id>confuser-repo</id>
-            <url>http://ci.frostcast.net/plugin/repository/everything</url>
+            <url>http://repo.skyslience.top:8081/nexus/content/repositories/thirdparty/</url>
         </repository>
         <repository>
             <id>dakani</id>
@@ -120,8 +120,14 @@
         </dependency>
         <dependency>
             <groupId>lib.PatPeter.SQLibrary</groupId>
-            <artifactId>SQLibrary</artifactId>
-            <version>7.1</version>
+            <artifactId>SQLibrarySQLibrary</artifactId>
+            <version>7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.14</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <!-- Build. -->

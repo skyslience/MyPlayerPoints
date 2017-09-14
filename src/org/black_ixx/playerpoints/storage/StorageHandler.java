@@ -85,4 +85,9 @@ public class StorageHandler implements IStorage, IModule {
         return storage.build();
     }
 
+    @Override
+    public void selectConsume() {
+        storage.selectConsume();
+    }
+
 }

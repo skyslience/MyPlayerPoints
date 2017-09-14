@@ -64,6 +64,13 @@ public interface IStorage {
     boolean build();
 
     /**
+     * Select Consume.
+     *
+     * @return True if successful, else false.
+     */
+    void selectConsume();
+
+    /**
      * Get the existing players in storage.
      * 
      * @return Collection of player IDs.
