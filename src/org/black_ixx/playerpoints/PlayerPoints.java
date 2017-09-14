@@ -118,6 +118,13 @@ public class PlayerPoints extends JavaPlugin implements PluginMessageListener {
                 PlayerPoints.this.getModuleForClass(StorageHandler.class).selectConsume();
             }
         }, 20 , 20*60*30);
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+
+            new PlayerPointPlaceholder(this).hook();
+
+        } else {
+            throw new RuntimeException("Could not find PlaceholderAPI!! Plugin can not work without it!");
+        }
     }
 
     @Override

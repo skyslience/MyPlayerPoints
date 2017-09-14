@@ -57,6 +57,10 @@
             <url>http://repo.dakanilabs.com/content/repositories</url>
         </repository>
         <repository>
+            <id>placeholderapi</id>
+            <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+        <repository>
             <id>release</id>
             <name>Release Repository</name>
             <url>${dakani.repo}/releases</url>
@@ -112,13 +116,6 @@
             <version>1.6</version>
         </dependency>
         <dependency>
-            <groupId>com.vexsoftware.votifier</groupId>
-            <artifactId>Votifier</artifactId>
-            <version>1.9</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/Votifier.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>lib.PatPeter.SQLibrary</groupId>
             <artifactId>SQLibrarySQLibrary</artifactId>
             <version>7.2</version>
@@ -127,6 +124,19 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.14</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.vexsoftware.votifier</groupId>
+            <artifactId>Votifier</artifactId>
+            <version>1.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/votifier-1.9.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.0.8</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

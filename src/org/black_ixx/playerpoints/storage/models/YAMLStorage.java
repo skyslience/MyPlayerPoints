@@ -141,4 +141,9 @@ public class YAMLStorage implements IStorage {
         return success;
     }
 
+    @Override
+    public void selectConsume() {
+
+    }
+
 }

@@ -197,4 +197,9 @@ public class SQLiteStorage extends DatabaseStorage {
         return success;
     }
 
+    @Override
+    public void selectConsume() {
+
+    }
+
 }
