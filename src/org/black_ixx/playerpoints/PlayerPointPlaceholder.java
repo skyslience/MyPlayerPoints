@@ -7,18 +7,19 @@ import org.bukkit.plugin.Plugin;
 public class PlayerPointPlaceholder extends EZPlaceholderHook {
 
     public PlayerPointPlaceholder(Plugin plugin) {
-        super(plugin, "playerpoint");
+        super(plugin, "myplayerpoint");
     }
 
     @Override
     public String onPlaceholderRequest(Player player, String s) {
         if(s.contains("time")){
             String[] strings = s.split("_");
-            String begin = strings[2];
-            System.out.print(begin + "开始时间");
-            String end = strings[3];
-            System.out.print(begin + "结束时间");
-            int i = PlayerPoints.getConsuM().getPlayerConsumen(player , begin , end);
+            String begin = strings[1];
+            String end = strings[2];
+            for(String sss : strings) {
+                System.out.print(sss);
+            }
+            int i = PlayerPoints.getConsuM().getPlayerConsumen(player , begin , end , strings[3]);
             return i + "";
         }
         return "0";

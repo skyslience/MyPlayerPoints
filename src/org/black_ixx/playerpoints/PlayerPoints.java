@@ -121,6 +121,7 @@ public class PlayerPoints extends JavaPlugin implements PluginMessageListener {
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
 
             new PlayerPointPlaceholder(this).hook();
+            System.out.print("注册成功");
 
         } else {
             throw new RuntimeException("Could not find PlaceholderAPI!! Plugin can not work without it!");

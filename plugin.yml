@@ -1,6 +1,6 @@
 name: ${project.artifactId}
 description: ${project.description}
-main: ${project.mainclass}
+main: org.black_ixx.playerpoints.PlayerPoints
 version: ${project.version}
 author: Black_ixx
 website: http://felix.neuby.de

@@ -15,7 +15,7 @@ public class ConsymenDataManager {
     public Map<Integer , ConsumeData> consumeDatas = new ConcurrentHashMap<Integer, ConsumeData>();
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public int getPlayerConsumen(Player player , String beginTime , String endTime){
+    public int getPlayerConsumen(Player player , String beginTime , String endTime , String server){
         int point = 0;
         for(ConsumeData consumeData : consumeDatas.values()){
             List<ConsumeData> consumeDataList = new ArrayList<ConsumeData>();
@@ -24,10 +24,10 @@ public class ConsymenDataManager {
             }
             for(ConsumeData consume : consumeDataList){
                 try {
-                    Date begindate = df.parse(beginTime);
-                    Date enddate = df.parse(endTime);
+                    Date begindate = df.parse((beginTime + " 00:00:00"));
+                    Date enddate = df.parse((endTime + " 00:00:00"));
                     Date date = df.parse(consume.getTime());
-                    if(date.getTime() >= enddate.getTime() && date.getTime() <= begindate.getTime()){
+                    if(date.getTime() <= enddate.getTime() && date.getTime() >= begindate.getTime() && consume.getServer().contains(server)){
                         point = point + consume.getPoint();
                     }
                 } catch (ParseException e) {
